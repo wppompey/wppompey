@@ -8,11 +8,12 @@
  */
 function wppompey_lazy_admin_menu() {
 	add_action( "save_post_clink", "wppompey_save_post_clink", 10, 2 );
+	add_action( "save_post_meetup", "wppompey_save_post_clink", 10, 2 );
 }
 
 
 /**
- * Implement "save_post_clink" for clink
+ * Implement "save_post_clink" for clink and meetup
  *
  * Here we attempt to set the _lat and _long fields if they're null and the _address and/or _post_code are set.
  *

@@ -67,6 +67,7 @@ function wppompey_register_categories() {
  */
 function wppompey_register_post_types() {
 	wppompey_register_clink();
+	wppompey_register_meetup();
 }
 
 /**
@@ -90,9 +91,18 @@ function wppompey_register_clink() {
   $post_type_args['menu_icon'] = 'dashicons-admin-post';
 	
 	$post_type_args['taxonomies'] = array( "clinktype" );
+	$post_type_args['show_in_rest'] = true;
   bw_register_post_type( $post_type, $post_type_args );
 	
   bw_register_field( "_url", "url", "Website" ); 
+	bw_register_field_for_object_type( "_url", $post_type );
+	
+	wppompey_register_google_maps_fields( $post_type );
+	
+}
+
+function wppompey_register_google_maps_fields( $post_type ) {
+	
   bw_register_field( "_address", "textarea", "Address" ); 
 	bw_register_field( "_post_code", "text", "Post Code" );
 	bw_register_field( "_lat", "numeric", "Latitude", array( '#theme_null' => false, '#optional' => true ) );
@@ -103,12 +113,40 @@ function wppompey_register_clink() {
 	
 	bw_register_field_for_object_type( "googlemap", $post_type );
 	
-	bw_register_field_for_object_type( "_url", $post_type );
 	bw_register_field_for_object_type( "_address", $post_type );
 	bw_register_field_for_object_type( "_post_code", $post_type );
 	bw_register_field_for_object_type( "_lat", $post_type );
 	bw_register_field_for_object_type( "_long", $post_type );
 
+}
+
+/**
+ * Register a Meetup
+ * 
+ */
+function wppompey_register_meetup() { 
+	$post_type = "meetup";
+  $post_type_args = array();
+  $post_type_args['label'] = 'Meetups';
+  $post_type_args['description'] = 'Meetups';
+  $post_type_args['supports'] = array( 'title', 'editor', 'thumbnail', 'excerpt', 'home', 'publicize', 'author' );
+  $post_type_args['has_archive'] = true;
+  $post_type_args['menu_icon'] = 'dashicons-flag';
+  bw_register_post_type( $post_type, $post_type_args );
+	
+	bw_register_field( "_date", "date", "Date" );
+	bw_register_field( "_time", "time", "Start time", array( '#theme_null' => false ) );
+  bw_register_field( "_meetup", "url", "Meetup" );
+	// 
+	// Attendees? Expected and actual
+	//  
+	
+	bw_register_field_for_object_type( "_date", $post_type );
+	bw_register_field_for_object_type( "_time", $post_type );
+	bw_register_field_for_object_type( "_meetup", $post_type );
+	
+	wppompey_register_google_maps_fields( $post_type );
+	
 }
 
 
