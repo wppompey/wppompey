@@ -129,7 +129,7 @@ function wppompey_register_meetup() {
   $post_type_args = array();
   $post_type_args['label'] = 'Meetups';
   $post_type_args['description'] = 'Meetups';
-  $post_type_args['supports'] = array( 'title', 'editor', 'thumbnail', 'excerpt', 'home', 'publicize', 'author' );
+  $post_type_args['supports'] = array( 'title', 'editor', 'thumbnail', 'excerpt', 'home', 'publicize', 'author', 'revisions' );
   $post_type_args['has_archive'] = true;
   $post_type_args['menu_icon'] = 'dashicons-flag';
   $post_type_args['show_in_rest'] = true;
