@@ -26,7 +26,7 @@ None
 
 == Upgrade Notice ==
 = 0.1.0 = 
-Now supports the block editor for Events
+Now supports the block editor for Meetups
 
 = 0.0.0 =
 Provides googlemap support for the "clink" CPT
@@ -34,7 +34,7 @@ Provides googlemap support for the "clink" CPT
 
 == Changelog ==
 = 0.1.0 = 
-* Changed: Add 'show_in_rest' true for Events CPT, [github wppompey wppompey issue 4]
+* Changed: Add 'show_in_rest' true for Meetups CPT. Also support revisions, [github wppompey wppompey issue 4]
 * Tested: With WordPress 5.0.3
 * Tested: With Gutenberg 4.8
 * Tested: With PHP 7.2
