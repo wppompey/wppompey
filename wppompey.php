@@ -3,12 +3,12 @@
 Plugin Name: wppompey 
 Plugin URI: https://github.com/wppompey/wppompey
 Description: WordPress Portsmouth Custom Post Types and Fields
-Version: 0.0.0
+Version: 0.1.0
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 License: GPL2
 
-    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2019 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -132,6 +132,7 @@ function wppompey_register_meetup() {
   $post_type_args['supports'] = array( 'title', 'editor', 'thumbnail', 'excerpt', 'home', 'publicize', 'author' );
   $post_type_args['has_archive'] = true;
   $post_type_args['menu_icon'] = 'dashicons-flag';
+  $post_type_args['show_in_rest'] = true;
   bw_register_post_type( $post_type, $post_type_args );
 	
 	bw_register_field( "_date", "date", "Date" );
